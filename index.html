@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Switch Text</title>
+        <meta name="description" content="switch boxes">
+        <meta name="author" content="Mico Theogene Micomyiza">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #container {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: larger;
+                position: absolute;
+                margin: 0;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 8px 8px 0 rgba(90, 179, 102, 0.2);
+                background-color: #b9b9c0;
+                min-width: 40%;
+            }
+
+            body {
+                background-color:#e6ebff;
+            }
+
+            #handlebutton {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                padding: 15px 32px;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                text-align: center;
+                text-decoration: none;
+                font-size: 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+
+            #b1 {
+                margin-top: 1rem;
+                margin-left: 1rem;
+                min-height:200px;
+            }
+
+            #b2 {
+                margin-top: 1rem;
+                margin-right: 1rem;
+                min-height:200px;
+            }
+
+            textarea{  
+                box-sizing: padding-box;
+                overflow:hidden;
+                padding:10px;
+                font-size:14px;
+                margin:50px auto;
+                border-radius:10px;
+                border:6px solid #556677;
+            }
+
+
+            @media screen and (max-width: 650px) {
+                #container{
+                    font-size: x-large;
+                    justify-content: space-between;
+                    object-fit: cover;
+                    resize: both;
+                    overflow: auto;
+                }
+
+                #b2 {
+                    min-width: 50px;
+                }
+
+                #b1 {
+                    min-width: 50px;
+                }
+
+                body{
+                    justify-content: space-evenly;
+                    object-fit: cover;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <textarea id="b1"></textarea>
+            <button id="handlebutton" type="submit" onclick="switchBox()">&rarr;</button>
+            <textarea id="b2"></textarea>
+        </div>
+
+        <script>
+            function switchBox () {
+                var v1 = document.getElementById("b1").value;
+
+                document.getElementById("b1").value = document.getElementById("b2").value;
+                document.getElementById("b2").value = v1;
+
+                if (v1 == "") {
+                    document.getElementById("handlebutton").innerHTML = "&rarr;";
+                }
+                else {
+                    document.getElementById("handlebutton").innerHTML = "&larr;";
+                }
+
+            }
+        </script>
+    </body>
+</html>
